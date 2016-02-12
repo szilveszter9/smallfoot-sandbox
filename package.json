@@ -1,20 +1,21 @@
 {
-  "name": "aggr-play",
-  "version": "1.0.0",
-  "description": "",
+  "name": "smallfoot-sandbox",
+  "version": "0.0.1",
+  "description": "Smallfoot sandbox for demos and testing.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server -d false",
     "dev": "nodemon --watch play.js --exec 'browserify play.js --debug | exorcist ./play.bundle.js.map > ./play.bundle.js'"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Szilveszter Szilagyi",
+  "license": "MIT",
   "dependencies": {
     "browserify": "^13.0.0",
     "domready": "^1.0.8",
     "exorcist": "^0.4.0",
     "http-server": "^0.8.5",
-    "nodemon": "^1.8.1"
+    "nodemon": "^1.8.1",
+    "smallfoot": "0.0.2"
   }
 }

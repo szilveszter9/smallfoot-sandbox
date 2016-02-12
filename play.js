@@ -1,4 +1,4 @@
-window.l = require('../aggr.js');
+window.l = require('smallfoot');
 var domready = require("domready");
 
 
