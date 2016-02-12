@@ -72,6 +72,44 @@ function app5(){
 
 
 
+var newElem = function(me){
+    var elem = me.target;
+    if(elem.nodeName == 'DIV' && elem.className == 'avatar') {
+        l.event.addListener(l.domEvent.moveByEvent, 'mousemove', elem);
+        l.event.addListener(l.domEvent.rotateByEvent, 'mousemove', elem);
+        l.event.addListener(l.domEvent.zoomByEvent, 'mousemove', elem);
+    }
+};
+
+document.addEventListener("DOMNodeInserted", newElem, false);
+
+
+var channelMouseMove = l.channel.create(1, l.identity);
+var channelMouseDrag = l.channel.create(1, l.event.isLeftMouseButtonDown);
+var channelMousePan = l.channel.create(1, l.event.isMiddleMouseButtonDown);
+var channelMouseContext = l.channel.create(1, l.event.isRightMouseButtonDown);
+
+l.channel.addListener(document, 'mousemove', channelMouseMove);
+l.channel.addListener(document, 'mousemove', channelMouseDrag);
+l.channel.addListener(document, 'mousemove', channelMousePan);
+l.channel.addListener(document, 'mousemove', channelMouseContext);
+
+(function recur(){
+    l.channel.take(channelMouseMove, function(v){/*console.log('move:',v)*/;recur()})
+})();
+(function recur(){
+    l.channel.take(channelMouseDrag, function(v){/*console.log('drag:',v)*/;recur()})
+})();
+(function recur(){
+    l.channel.take(channelMousePan, function(v){console.log('pan:',v);recur()})
+})();
+(function recur(){
+    l.channel.take(channelMouseContext, function(v){/*console.log('rmb:',v)*/;recur()})
+})();
+
+
+
+
 
 
 domready(function() {
