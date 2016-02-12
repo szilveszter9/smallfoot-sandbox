@@ -1,0 +1,28 @@
+html {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#mydiv {
+  background-color: #efefef;
+  border: 1px solid #dedede;
+}
+#canvas {
+    width: 400px;
+    height: 200px;
+}
+div.avatar{
+    width: 120px;
+    float: left;
+    background-color: beige;
+    border: 1px dotted #ccc;
+}
+div.avatar img{
+    width: 30px;
+    height: 30px;
+    display: block;
+    -webkit-user-drag: none;
+}
